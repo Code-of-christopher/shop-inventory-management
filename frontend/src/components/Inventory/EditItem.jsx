@@ -12,7 +12,7 @@ const EditItem = () => {
   useEffect(() => {
     const fetchItem = async () => {
       try {
-        const response = await api.get(`/items/${id}`);
+        const response = await api.get(`/items/get/${id}`);
         setItem(response.data);
       } catch (err) {
         setError('Failed to fetch item');

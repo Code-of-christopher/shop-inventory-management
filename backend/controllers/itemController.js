@@ -11,6 +11,15 @@ export const createItem = async (req, res) => {
   }
 };
 
+export const getItem = async (req, res) => {
+  try {
+    const item = await Item.findById(req.params.id);
+    res.json(item);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch item' });
+  }
+};
+
 export const getItems = async (req, res) => {
   try {
     const items = await Item.find({ userId: req.user.id });
